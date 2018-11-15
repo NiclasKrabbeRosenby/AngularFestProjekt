@@ -22,7 +22,7 @@ import { SsrPageComponent } from './ssr-page/ssr-page.component';
     NotificationMessageComponent,
     UserProfileComponent,
     UserFormComponent,
-    SsrPageComponent
+    SsrPageComponent,
   ],
   exports: [
     MainNavComponent,
