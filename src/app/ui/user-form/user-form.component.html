@@ -4,6 +4,24 @@
     <p class="button is-small" (click)="toggleForm()">Already Registered?</p>
     <hr>
 
+    <label for="firstName">Fornavn</label>
+    <input type="text" class="input" name="firstName" required >
+
+    <label for="lastName">Efternavn</label>
+    <input type="text" class="input" name="lastName" required>
+
+    <label for="telefonnummer">Telefonnummer</label>
+    <input type="tel" class="input" name="telefonnummer" required>
+
+    <label for="adresse">Adresse</label>
+    <input type="text" class="input" name="adresse" required>
+
+    <label for="postnummer">Postnummer</label>
+    <input type="number" class="input" name="postnummer" required>
+
+    <label for="by">By</label>
+    <input type="text" class="input" name="by" required>
+
     <label for="email">Email</label>
     <input type="email" class="input" formControlName="email" name="email" required autocomplete="new-password">
 
@@ -17,6 +35,11 @@
     <div *ngIf="formErrors.password" class="notification is-danger">
         {{ formErrors.password }}
     </div>
+
+    <label>
+        <input type="checkbox" class="checkbox" required>Terms of service
+    </label>
+    
 
     <div *ngIf="userForm.valid" class="notification is-success">Form is valid</div>
     <button type="submit" class="button" [disabled]="!userForm.valid">Submit</button>
