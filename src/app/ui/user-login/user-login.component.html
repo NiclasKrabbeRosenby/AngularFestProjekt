@@ -1,13 +1,8 @@
-<h1>Firebase User Auth Demo</h1>
 
-<p>
-  Learn more about 
-  <a href="https://angularfirebase.com/tag/authentication">Firebase auth strategies</a>.
-</p>
-<hr>
+
 
 <div *ngIf="!(auth.user | async); else alreadyLoggedIn">
-
+<!--
   <h3>Social Login</h3>
 
     <button (click)="signInWithGoogle()" class="button btn-social btn-google">
@@ -35,13 +30,15 @@
       </button>
 
     <hr>
-
+  -->
     <user-form></user-form>
 
 </div>
 
 <ng-template #alreadyLoggedIn>
+  <h3>Din profil</h3>
+  <p>Under din profil kan du ændre dine oplysninger samt se og acceptere dine indhentede tilbud</p>
   <p class="text-success">
-    You are logged in <i class="fa fa-thumbs-up"></i>
+    Du er nu logget ind <i class="fa fa-thumbs-up"></i>
   </p>
 </ng-template>

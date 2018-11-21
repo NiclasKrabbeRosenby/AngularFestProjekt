@@ -6,18 +6,18 @@
 
 <!-- User NOT logged in -->
 <ng-template #guest class="box">
-  <h3>Howdy, GUEST</h3>
-  <p class="card-text">Login to get started...</p>
-  <button class="button" routerLink="/login">Login</button>
+  <h3>Hej, Gæst</h3>
+  <p class="card-text">Log ind for at se din profil</p>
+  <!--<button class="button" routerLink="/login">Log ind</button>-->
 </ng-template>
 
 <!-- User logged in -->
 <ng-template #authenticated>
   <div *ngIf="auth.user | async as user">
-    <h3>Howdy, {{ user.displayName }}</h3>
-    <img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>
+    <h3>Hej, {{ user.displayName }}</h3>
+    <!--<img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>-->
     <p class="text-truncate">UID: {{ user.uid }}</p>
-    <button class="button" (click)="logout()">Logout</button>
+    <button class="button" (click)="logout()">Log ud</button>
   </div>
 </ng-template>
 
