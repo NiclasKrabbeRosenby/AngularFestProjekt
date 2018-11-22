@@ -1,0 +1,51 @@
+<div class="box" >
+  <div *ngIf="auth.user | async; then authenticated else guest">
+          <!-- template will replace this div -->
+  </div>
+</div>
+
+<!-- User NOT logged in -->
+<ng-template #guest class="box">
+  <h3>Hej, Gæst</h3>
+  <p class="card-text">Log ind for at se din profil</p>
+  <!--<button class="button" routerLink="/login">Log ind</button>-->
+</ng-template>
+
+<!-- User logged in -->
+<ng-template #authenticated>
+  <div *ngIf="auth.user | async as user">
+    <h3>Hej, {{ user.displayName }}</h3>
+    <h4>Email : {{ user.email }}</h4>
+    <h4>Fornavn : {{ user.firstName }}</h4>
+    <h4>Efternavn : {{ user.lastName }}</h4>
+    <h4>{{ user.phoneNumber }}</h4>
+    <h4>{{ user.zipCode }}</h4>
+    <h4>{{ user.address }}</h4>
+    <h4>{{ user.city }}</h4>
+    <!--<img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>-->
+    <p class="text-truncate">UID: {{ user.uid }}</p>
+
+    <button class="button" (click)="editInfo()">Edit Info</button>
+
+    
+
+
+    <button class="button" (click)="logout()">Log ud</button>
+  </div>
+</ng-template>
+
+<form [formGroup]="userForm">
+
+  <input type="hidden" fromControlName="$key">
+  <div class="form-group">
+    <label>FirstName</label>
+    <input formControlName="firstName" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input formControlName="email" class="form-control">
+  </div>
+
+
+</form>
+

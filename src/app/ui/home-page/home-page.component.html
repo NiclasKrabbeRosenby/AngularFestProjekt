@@ -1,0 +1,68 @@
+<h1>Velkommen til Festrobotten</h1>
+<br>
+
+
+<form [formGroup]="userForm">
+
+    <h3>Udfyld felterne så præcist som muligt for at indhente tilbud til din/jeres fest</h3>
+    <hr>
+
+    <label for="email">Antal Personer</label>
+    <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password" placeholder="Antal Personer">
+
+    <label for="email">Max Pris per person</label>
+    <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password" placeholder="Max Pris">
+
+
+    <label for="password">Dato</label>
+    <input type="date" id="password" name="password2" class="input" formControlName="password" required autocomplete="new-password">
+
+    <label for="password">Tidspunkt</label>
+    <input type="time" id="password" name="password2" class="input" formControlName="password" required autocomplete="new-password">
+
+    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Lokation</label>
+    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+      <option selected>Vælg Lokation</option>
+      <option value="1">Eget Lokale</option>
+      <option value="2">Ud af huset</option>
+    </select>
+
+      <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Type Fest</label>
+      <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <option selected>Vælg Type Fest</option>
+        <option value="1">Bryllup</option>
+        <option value="2">Fødselsdag</option>
+        <option value="3">Polterabend</option>
+      </select>
+
+    <span *ngIf="userForm.valid" class="help is-success">Form Looks Valid</span>
+
+    <a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a>
+    <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
+
+    <h1>Ekstra Tilvalg</h1>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Transport til lokation
+        </label>
+      </div>
+      
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Transport fra lokation
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Overnatning
+        </label>
+      </div>
+
+
+
+    <button type="button" class="btn btn-primary">Indhent Tilbud</button>
+</form>
