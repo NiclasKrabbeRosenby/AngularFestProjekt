@@ -15,9 +15,16 @@ import { switchMap, startWith, tap, filter } from 'rxjs/operators';
 
 interface User {
   uid: string;
-  email?: string | null;
+  email?: string;
   photoURL?: string;
   displayName?: string;
+  firstName?: string;
+  lastName?: string;
+  address?: string;
+  zipCode?: string;
+  city?: string;
+  phoneNumber?: string;
+  
 }
 
 @Injectable()
@@ -133,18 +140,26 @@ export class AuthService {
     this.notify.update(error.message, 'error');
   }
 
-  // Sets user data to firestore after succesful login
-  private updateUserData(user: User) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `users/${user.uid}`
-    );
+  private updateUserData(user) {
+    // Sets user data to firestore on login
+
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
 
     const data: User = {
       uid: user.uid,
-      email: user.email || null,
-      displayName: user.displayName || 'nameless user',
-      photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ'
-    };
-    return userRef.set(data);
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      address: user.address,
+      zipCode: user.zipCode,
+      city: user.city,
+      phoneNumber: user.phoneNumber
+    }
+
+    return userRef.set(data, { merge: true })
+
   }
+
 }
