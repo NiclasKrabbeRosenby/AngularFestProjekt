@@ -18,12 +18,12 @@ interface User {
   email?: string;
   photoURL?: string;
   displayName?: string;
-  firstName?: string;
-  lastName?: string;
-  address?: string;
-  zipCode?: string;
-  city?: string;
-  phoneNumber?: string;
+  // firstName?: string;
+  // lastName?: string;
+  // address?: string;
+  // zipCode?: string;
+  // city?: string;
+  // phoneNumber?: string;
   
 }
 
@@ -149,15 +149,15 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      address: user.address,
-      zipCode: user.zipCode,
-      city: user.city,
-      phoneNumber: user.phoneNumber
+      //photoURL: user.photoURL,
+      // firstName: user.firstName,
+      // lastName: user.lastName,
+      // address: user.address,
+      // zipCode: user.zipCode,
+      // city: user.city,
+      // phoneNumber: user.phoneNumber
     }
-
+    console.log(data)
     return userRef.set(data, { merge: true })
 
   }

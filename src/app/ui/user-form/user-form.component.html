@@ -8,24 +8,28 @@
     <h3>Opret ny profil</h3>
     <!--<p class="button is-small" (click)="toggleForm()">Already Registered?</p>-->
     <hr>
-
+<!--
     <label for="firstName">Fornavn</label>
-    <input type="text" class="input" name="firstName" required >
+    <input type="text" class="input" formControlName="firstName" name="firstName" required >
 
     <label for="lastName">Efternavn</label>
-    <input type="text" class="input" name="lastName" required>
+    <input type="text" class="input" formControlName="lastName" name="lastName" required>
 
     <label for="telefonnummer">Telefonnummer</label>
-    <input type="tel" class="input" name="telefonnummer" required>
+    <input type="tel" class="input" formControlName="phoneNumber" name="telefonnummer" required>
 
     <label for="adresse">Adresse</label>
-    <input type="text" class="input" name="adresse" required>
+    <input type="text" class="input" formControlName="address" name="adresse" required>
 
     <label for="postnummer">Postnummer</label>
-    <input type="number" class="input" name="postnummer" required>
+    <input type="number" class="input" formControlName="zipCode" name="postnummer" required>
 
     <label for="by">By</label>
-    <input type="text" class="input" name="by" required>
+    <input type="text" class="input" formControlName="city" name="by" required>
+-->
+
+    <label>display name</label>
+    <input type="text" class="input" formControlName="displayName" name="displayName"> 
 
     <label for="email">Email</label>
     <input type="email" class="input" formControlName="email" name="email" required autocomplete="new-password">
@@ -41,10 +45,11 @@
         {{ formErrors.password }}
     </div>
 
+    <!--
     <label>
         <input type="checkbox" class="checkbox" required>Service & Betingelser
     </label>
-    
+    -->
 
     <div *ngIf="userForm.valid" class="notification is-success">Form is valid</div>
     <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Opret Profil</button>
