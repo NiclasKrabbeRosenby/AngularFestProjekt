@@ -41,4 +41,12 @@
   <p class="text-success">
     Du er nu logget ind <i class="fa fa-thumbs-up"></i>
   </p>
+
+  <form [formGroup]="updateUser" *ngIf="update">
+
+    <label>display name</label>
+    <input type="text" class="input" formControlName="displayName" name="displayName">
+
+  </form>
+  
 </ng-template>
