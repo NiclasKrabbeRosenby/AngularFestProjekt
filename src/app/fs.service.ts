@@ -9,7 +9,7 @@ import firestore from 'firebase/firestore'
 })
 export class FsService {
 
-  ref = firebase.firestore().collection('boards');
+  ref = firebase.firestore().collection('users');
 
   constructor() { }
 
@@ -21,9 +21,9 @@ export class FsService {
           let data = doc.data();
           boards.push({
             key: doc.id,
-            title: data.title,
-            description: data.description,
-            author: data.author
+          displayName: data.displayName,
+          email: data.email,
+          uid: data.uid
           });
         });
         observer.next(boards);
@@ -37,9 +37,9 @@ export class FsService {
         let data = doc.data();
         observer.next({
           key: doc.id,
-          title: data.title,
-          description: data.description,
-          author: data.author
+          displayName: data.displayName,
+          email: data.email,
+          uid: data.uid
         });
       });
     });

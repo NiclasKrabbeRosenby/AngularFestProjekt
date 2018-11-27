@@ -10,7 +10,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 })
 export class BoardsDetailComponent implements OnInit {
 
-  board = {};
+  user = {};
 
   constructor(private route: ActivatedRoute, private router: Router, private fs: FsService) { }
 
@@ -22,7 +22,7 @@ export class BoardsDetailComponent implements OnInit {
     this.fs.getBoard(id)
       .subscribe(data => {
         console.log(data);
-        this.board = data;
+        this.user = data;
       });
   }
 

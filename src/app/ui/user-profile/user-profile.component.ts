@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
   selector: 'user-profile',
@@ -9,7 +12,7 @@ import { AuthService } from '../../core/auth.service';
 })
 export class UserProfileComponent {
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, private router: Router) { }
 
   userForm = new FormGroup({
     $key: new FormControl(null),
@@ -27,6 +30,6 @@ export class UserProfileComponent {
     this.auth.signOut();
   }
   editInfo(){
-
+    this.router.navigate(['/boards-edit', ]);
   }
 }

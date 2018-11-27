@@ -46,11 +46,6 @@ export class UserFormComponent implements OnInit {
     this.newUser = !this.newUser;
   }
 
-
-  updateUser(customer){
-    
-  }
-
   signup() {
     this.auth.emailSignUp(this.userForm.value['email'], this.userForm.value['password']);
   }

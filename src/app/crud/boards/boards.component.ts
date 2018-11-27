@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 })
 export class BoardsComponent implements OnInit {
 
-  displayedColumns = ['title', 'description', 'author'];
+  displayedColumns = ['displayName', 'email', 'uid'];
   dataSource = new BoardDataSource(this.fs);
 
   constructor(private fs: FsService) {
