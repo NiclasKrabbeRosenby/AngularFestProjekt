@@ -18,14 +18,14 @@
     <h4>Email : {{ user.email }}</h4>
     <h4>Fornavn : {{ user.firstName }}</h4>
     <h4>Efternavn : {{ user.lastName }}</h4>
-    <h4>{{ user.phoneNumber }}</h4>
-    <h4>{{ user.zipCode }}</h4>
-    <h4>{{ user.address }}</h4>
-    <h4>{{ user.city }}</h4>
+    <h4>Telefon : {{ user.phoneNumber }}</h4>
+    <h4>Postnr : {{ user.zipCode }}</h4>
+    <h4>Adresse : {{ user.address }}</h4>
+    <h4>By : {{ user.city }}</h4>
     <!--<img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>-->
     <p class="text-truncate">UID: {{ user.uid }}</p>
 
-    <button class="button" [routerLink]="['/boards-details/', user.key]">Opdater profil</button>
+    <button class="button" [routerLink]="['/boards-details/', user.uid]">Opdater profil</button>
      <br>
     <button class="button" (click)="logout()">Log ud</button>
   </div>

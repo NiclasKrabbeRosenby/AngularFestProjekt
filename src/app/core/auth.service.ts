@@ -130,13 +130,14 @@ export class AuthService {
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/home-page.component.html']);
+      this.router.navigate(['/user-login.component.html']);
     });
   }
 
   // If error, console log and notify user
   private handleError(error: Error) {
     console.error(error);
+    console.log(error.message)
     this.notify.update(error.message, 'error');
   }
 

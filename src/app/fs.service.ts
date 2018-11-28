@@ -23,7 +23,13 @@ export class FsService {
             key: doc.id,
             displayName: data.displayName,
             firstName: data.firstName,
-            lastName: data.lastName
+            lastName: data.lastName,
+            address: data.address,
+            zipCode: data.zipCode,
+            city: data.city,
+            phoneNumber: data.phoneNumber,
+            email: data.email,
+            uid: data.uid,
           });
         });
         observer.next(users);
@@ -40,7 +46,13 @@ export class FsService {
           key: id,
           displayName: data.displayName,
           firstName: data.firstName,
-          lastName: data.lastName
+          lastName: data.lastName,
+          address: data.address,
+          zipCode: data.zipCode,
+          city: data.city,
+          phoneNumber: data.phoneNumber,
+          email: data.email,
+          uid: data.uid,
         });
       });
     });

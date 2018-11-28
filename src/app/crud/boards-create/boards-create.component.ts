@@ -20,8 +20,14 @@ export class BoardsCreateComponent implements OnInit {
   ngOnInit() {
     this.boardsForm = this.formBuilder.group({
       'displayName' : [null, Validators.required],
+      'firstName' : [null, Validators.required],
+      'lastName' : [null, Validators.required],
+      'telefonNummer' : [null, Validators.required],
+      'address' : [null, Validators.required],
+      'zipCode' : [null, Validators.required],
+      'city' : [null, Validators.required],
+      'uid' : [null, Validators.required],
       'email' : [null, Validators.required],
-      'uid' : [null, Validators.required]
     });
   }
 
