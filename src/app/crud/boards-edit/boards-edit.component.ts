@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FsService } from '../../fs.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Key } from 'selenium-webdriver';
+
 
 @Component({
   selector: 'app-boards-edit',
@@ -13,8 +15,8 @@ export class BoardsEditComponent implements OnInit {
   boardsForm: FormGroup;
   id:string = '';
   displayName:string = '';
-  email:string = '';
-  uid:string = '';
+  firstName:string = '';
+  lastName:string = '';
 
   constructor(private router: Router, private route: ActivatedRoute, private fs: FsService, private formBuilder: FormBuilder) { }
 
@@ -22,18 +24,19 @@ export class BoardsEditComponent implements OnInit {
     this.getBoard(this.route.snapshot.params['id']);
     this.boardsForm = this.formBuilder.group({
       'displayName' : [null, Validators.required],
-      'email' : [null, Validators.required],
-      'uid' : [null, Validators.required]
+      'firstName' : [null, Validators.required],
+      'lastName' : [null, Validators.required]
     });
   }
 
   getBoard(id) {
     this.fs.getBoard(id).subscribe(data => {
       this.id = data.key;
+      this.boardsDetails
       this.boardsForm.setValue({
         displayName: data.displayName,
-        email: data.email,
-        uid: data.uid
+        firstName: data.firstName,
+        lastName: data.lastName
       });
     });
   }
@@ -41,7 +44,7 @@ export class BoardsEditComponent implements OnInit {
   onFormSubmit(form:NgForm) {
     this.fs.updateBoards(this.id, form)
       .subscribe(res => {
-          this.router.navigate(['/boards']);
+          this.router.navigate(['/boards-details', this.id]);
         }, (err) => {
           console.log(err);
         }

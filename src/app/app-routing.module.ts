@@ -19,11 +19,11 @@ const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
   { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
   { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
-  { path: 'boards', component: BoardsComponent, canActivate: [AuthGuard], data: { title: 'Boards List' } },
+  // { path: 'boards', component: BoardsComponent, canActivate: [AuthGuard], data: { title: 'Boards List' } },
   { path: 'boards-details/:id', component: BoardsDetailComponent,canActivate: [AuthGuard], data: { title: 'Boards Details' } },
   { path: 'boards-create', component: BoardsCreateComponent,canActivate: [AuthGuard], data: { title: 'Create Boards' } },
   { path: 'boards-edit/:id', component: BoardsEditComponent,canActivate: [AuthGuard], data: { title: 'Edit Boards' } },
-  { path: '', redirectTo: '/boards', pathMatch: 'full' },
+  // { path: '', redirectTo: '/boards', pathMatch: 'full' },
   { path: 'ssr', component: SsrPageComponent }
 ];
 

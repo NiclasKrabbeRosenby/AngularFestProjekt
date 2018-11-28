@@ -1,19 +1,19 @@
 <div class="button-row">
-  <a mat-fab color="primary" [routerLink]="['/boards']"><mat-icon>list</mat-icon></a>
+  <!-- <a mat-fab color="primary" [routerLink]="['/boards']"><mat-icon>list</mat-icon></a> -->
 </div>
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title><h2>{{user.displayName}}</h2></mat-card-title>
-    <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+    <mat-card-subtitle>{{user.firstName}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <dl>
       <dt>DisplayName:</dt>
       <dd>{{user.displayName}}</dd>
-      <dt>Email:</dt>
-      <dd>{{user.email}}</dd>
-      <dt>Uid:</dt>
-      <dd>{{user.uid}}</dd>
+      <dt>First Name:</dt>
+      <dd>{{user.firstName}}</dd>
+      <dt>Last Name:</dt>
+      <dd>{{user.lastName}}</dd>
     </dl>
   </mat-card-content>
   <mat-card-actions>

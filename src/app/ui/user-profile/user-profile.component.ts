@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UserProfileComponent {
 
-  constructor(public auth: AuthService, private router: Router) { }
+  constructor(public auth: AuthService, private router: Router, ) { }
 
   userForm = new FormGroup({
     $key: new FormControl(null),
@@ -29,7 +29,7 @@ export class UserProfileComponent {
   logout() {
     this.auth.signOut();
   }
-  editInfo(){
-    this.router.navigate(['/boards-edit', ]);
-  }
+  // editDetails() {
+  //   this.router.navigate(['/boards-details/']);
+  // }
 }

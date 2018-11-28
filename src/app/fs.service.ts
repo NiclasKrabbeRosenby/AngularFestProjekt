@@ -16,30 +16,31 @@ export class FsService {
   getBoards(): Observable<any> {
     return new Observable((observer) => {
       this.ref.onSnapshot((querySnapshot) => {
-        let boards = [];
+        let users = [];
         querySnapshot.forEach((doc) => {
           let data = doc.data();
-          boards.push({
+          users.push({
             key: doc.id,
-          displayName: data.displayName,
-          email: data.email,
-          uid: data.uid
+            displayName: data.displayName,
+            firstName: data.firstName,
+            lastName: data.lastName
           });
         });
-        observer.next(boards);
+        observer.next(users);
       });
     });
   }
 
   getBoard(id: string): Observable<any> {
     return new Observable((observer) => {
+      console.log(id)
       this.ref.doc(id).get().then((doc) => {
         let data = doc.data();
         observer.next({
-          key: doc.id,
+          key: id,
           displayName: data.displayName,
-          email: data.email,
-          uid: data.uid
+          firstName: data.firstName,
+          lastName: data.lastName
         });
       });
     });

@@ -1,29 +1,29 @@
 <div class="button-row">
-  <a mat-fab color="primary" (click)="boardsDetails()"><mat-icon>visibility</mat-icon></a>
-</div>
-<form [formGroup]="boardsForm" (ngSubmit)="onFormSubmit(boardsForm.value)">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="displayName" formControlName="displayName"
-           [errorStateMatcher]="matcher">
-    <mat-error>
-      <span *ngIf="!boardsForm.get('displayName').valid && boardsForm.get('displayName').touched">Please enter Book Title</span>
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="email" formControlName="email"
-           [errorStateMatcher]="matcher"></textarea>
-    <mat-error>
-      <span *ngIf="!boardsForm.get('email').valid && boardsForm.get('email').touched">Please enter Book Description</span>
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="uid" formControlName="uid"
-           [errorStateMatcher]="matcher">
-    <mat-error>
-      <span *ngIf="!boardsForm.get('uid').valid && boardsForm.get('uid').touched">Please enter Book Author</span>
-    </mat-error>
-  </mat-form-field>
-  <div class="button-row">
-    <button type="submit" [disabled]="!boardsForm.valid" mat-fab color="primary"><mat-icon>save</mat-icon></button>
+    <a mat-fab color="primary" (click)="boardsDetails()"><mat-icon>visibility</mat-icon></a>
   </div>
-</form>
+  <form [formGroup]="boardsForm" (ngSubmit)="onFormSubmit(boardsForm.value)">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Display Name" formControlName="displayName"
+             [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!boardsForm.get('displayName').valid && boardsForm.get('displayName').touched">Please enter Book Title</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="First Name" formControlName="firstName"
+             [errorStateMatcher]="matcher"></textarea>
+      <mat-error>
+        <span *ngIf="!boardsForm.get('firstName').valid && boardsForm.get('firstName').touched">Please enter Book Description</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Last Name" formControlName="lastName"
+             [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!boardsForm.get('lastName').valid && boardsForm.get('lastName').touched">Please enter Book Author</span>
+      </mat-error>
+    </mat-form-field>
+    <div class="button-row">
+      <button type="submit" [disabled]="!boardsForm.valid" mat-fab color="primary"><mat-icon>save</mat-icon></button>
+    </div>
+  </form>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FsService } from '../../fs.service';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-boards-detail',
@@ -16,6 +16,7 @@ export class BoardsDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getBoardDetails(this.route.snapshot.params['id']);
+    
   }
 
   getBoardDetails(id) {
@@ -26,14 +27,14 @@ export class BoardsDetailComponent implements OnInit {
       });
   }
 
-  deleteBoard(id) {
-    this.fs.deleteBoards(id)
-      .subscribe(res => {
-          this.router.navigate(['/boards']);
-        }, (err) => {
-          console.log(err);
-        }
-      );
-  }
+  // deleteBoard(id) {
+  //   this.fs.deleteBoards(id)
+  //     .subscribe(res => {
+  //         this.router.navigate(['/boards']);
+  //       }, (err) => {
+  //         console.log(err);
+  //       }
+  //     );
+  // }
 
 }
