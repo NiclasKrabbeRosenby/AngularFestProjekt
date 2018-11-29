@@ -130,7 +130,7 @@ export class AuthService {
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/user-login.component.html']);
+      this.router.navigate(['/login']);
     });
   }
 
