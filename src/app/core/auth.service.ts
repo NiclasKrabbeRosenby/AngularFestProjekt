@@ -149,14 +149,14 @@ export class AuthService {
     const data: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      address: user.address,
-      zipCode: user.zipCode,
-      city: user.city,
-      phoneNumber: user.phoneNumber
+      // displayName: user.displayName,
+      // photoURL: user.photoURL,
+      // firstName: user.firstName,
+      // lastName: user.lastName,
+      // address: user.address,
+      // zipCode: user.zipCode,
+      // city: user.city,
+      // phoneNumber: user.phoneNumber
     }
 
     return userRef.set(data, { merge: true })

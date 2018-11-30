@@ -14,16 +14,7 @@ export class UserProfileComponent {
 
   constructor(public auth: AuthService, private router: Router, ) { }
 
-  // userForm = new FormGroup({
-  //   $key: new FormControl(null),
-  //   email: new FormControl(''),
-  //   firstName: new FormControl(''),  
-  //   lastName: new FormControl(''),
-  //   phoneNumber: new FormControl(''),
-  //   zipCode: new FormControl(''),
-  //   address: new FormControl(''),
-  //   city: new FormControl('')
-  // });
+  
 
 
   logout() {
