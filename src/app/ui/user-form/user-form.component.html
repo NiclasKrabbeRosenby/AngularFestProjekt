@@ -84,18 +84,18 @@
 
 
 
-<form [formGroup]="userformCompany" *ngIf="!newUserCompany" (ngSubmit)="loginCompany()">
+<form [formGroup]="userCompanyForm" *ngIf="!newUserCompany" (ngSubmit)="loginCompany()">
 
         <h3>Log ind for at forsætte til din firma profil</h3>
         <label for="email">Email</label>
-        <input type="email" id="email" name="companyEmail" class="input" formControlName="email" required autocomplete="new-password">
+        <input type="email" id="email" name="email" class="input" formControlName="email" required autocomplete="new-password">
         
         <div *ngIf="formErrors.email" class="help is-danger">
             {{ formErrors.email }}
         </div>
         
         <label for="password">Password</label>
-        <input type="password" id="password" name="companyPassword" class="input" formControlName="password" required autocomplete="new-password">
+        <input type="password" id="password" name="password" class="input" formControlName="password" required autocomplete="new-password">
         
         <div *ngIf="formErrors.password" class="help is-danger">
             {{ formErrors.password }}

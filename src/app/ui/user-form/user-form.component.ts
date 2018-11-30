@@ -40,29 +40,19 @@ export class UserFormComponent implements OnInit {
       'required': 'Email is required.',
       'email': 'Email must be a valid email',
     },
-    'companyEmail': {
-      'required': 'Email is required.',
-      'email': 'Email must be a valid email',
-    },
     'password': {
       'required': 'Password is required.',
       'pattern': 'Password must be include at one letter and one number.',
       'minlength': 'Password must be at least 4 characters long.',
       'maxlength': 'Password cannot be more than 40 characters long.',
     },
-    'companyPassword': {
-      'required': 'Password is required.',
-      'pattern': 'Password must be include at one letter and one number.',
-      'minlength': 'Password must be at least 4 characters long.',
-      'maxlength': 'Password cannot be more than 40 characters long.',
-  },
 };
 
   constructor(private fb: FormBuilder, private authCompany: AuthCompanyService, private auth: AuthService) { }
 
   ngOnInit() {
     this.buildForm();
-    this.buildCompanyForm();
+    this.buildCompanyForm();  
   }
 
   toggleForm() {
@@ -78,7 +68,7 @@ export class UserFormComponent implements OnInit {
   }
 
   signupCompany() {
-    this.authCompany.emailCompanySignUp(this.userCompanyForm.value['companyEmail'], this.userCompanyForm.value['companyPassword']);
+    this.authCompany.emailCompanySignUp(this.userCompanyForm.value['email'], this.userCompanyForm.value['password']);
   }
 
   login() {
@@ -86,7 +76,7 @@ export class UserFormComponent implements OnInit {
   }
 
   loginCompany() {
-    this.authCompany.emailLoginCompany(this.userCompanyForm.value['companyEmail'], this.userCompanyForm.value['companyPassword']);
+    this.authCompany.emailLoginCompany(this.userCompanyForm.value['email'], this.userCompanyForm.value['password']);
   }
 
   resetPassword() {
@@ -114,11 +104,11 @@ export class UserFormComponent implements OnInit {
 
   buildCompanyForm() {
     this.userCompanyForm = this.fb.group({
-      'companyEmail': ['', [
+      'email': ['', [
         Validators.required,
         Validators.email,
       ]],
-      'companyPassword': ['', [
+      'password': ['', [
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
         Validators.minLength(6),
         Validators.maxLength(25),
@@ -157,7 +147,7 @@ export class UserFormComponent implements OnInit {
     if (!this.userCompanyForm) { return; }
     const form = this.userCompanyForm;
     for (const field in this.formErrors) {
-      if (Object.prototype.hasOwnProperty.call(this.formErrors, field) && (field === 'companyEmail' || field === 'companyPassword')) {
+      if (Object.prototype.hasOwnProperty.call(this.formErrors, field) && (field === 'email' || field === 'password')) {
         // clear previous error message (if any)
         this.formErrors[field] = '';
         const control = form.get(field);
