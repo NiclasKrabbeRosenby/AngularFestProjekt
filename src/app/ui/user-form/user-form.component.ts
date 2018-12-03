@@ -13,6 +13,11 @@ type FormErrors = { [u in UserFields]: string };
 })
 export class UserFormComponent implements OnInit {
 
+  public show:boolean = false;
+  public showLogin: boolean = false;
+  public createUser:any = 'Opret firma profil';
+  public loginUser: any = 'Login'
+
   userForm: FormGroup;
   userCompanyForm: FormGroup;
   newUserCompany = true;
@@ -53,6 +58,25 @@ export class UserFormComponent implements OnInit {
   ngOnInit() {
     this.buildForm();
     this.buildCompanyForm();  
+  }
+
+
+  toggle() {
+    this.show = !this.show;
+
+    if(this.show)  
+    this.createUser = "Opret bruger profil";
+  else
+    this.createUser = "Opret firma profil";
+  }
+
+
+  toggleLogin(){
+    this.showLogin = !this.showLogin;
+    if(this.showLogin)
+    this.loginUser = "Login med bruger";
+    else
+    this.loginUser = "Login med firma";
   }
 
   toggleForm() {
