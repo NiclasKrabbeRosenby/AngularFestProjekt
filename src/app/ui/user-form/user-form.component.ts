@@ -13,10 +13,8 @@ type FormErrors = { [u in UserFields]: string };
 })
 export class UserFormComponent implements OnInit {
 
-  public show:boolean = false;
-  public showLogin: boolean = false;
-  public createUser:any = 'Opret firma profil';
-  public loginUser: any = 'Login'
+  public show:boolean = true;
+  public showLogin: boolean = true;
 
   userForm: FormGroup;
   userCompanyForm: FormGroup;
@@ -60,23 +58,20 @@ export class UserFormComponent implements OnInit {
     this.buildCompanyForm();  
   }
 
-
-  toggle() {
-    this.show = !this.show;
-
-    if(this.show)  
-    this.createUser = "Opret bruger profil";
-  else
-    this.createUser = "Opret firma profil";
+  toggle(){
+    this.show = true;
   }
 
+  toggleFirma(){
+    this.show = false;
+  }
 
   toggleLogin(){
-    this.showLogin = !this.showLogin;
-    if(this.showLogin)
-    this.loginUser = "Login med bruger";
-    else
-    this.loginUser = "Login med firma";
+    this.showLogin = true;
+  }
+
+  toggleLoginFirma(){
+    this.showLogin = false;
   }
 
   toggleForm() {

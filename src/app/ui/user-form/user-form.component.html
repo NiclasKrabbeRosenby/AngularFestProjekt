@@ -1,23 +1,19 @@
 
+<!-- toggle login bruger -->
+<button (click)="toggleLogin()" id="bt" class="btn btn-primary">Login bruger</button>
 
-<button (click)="toggleLogin()" id="bt" class="btn btn-primary">{{loginUser}}</button>
+<!-- toggle login firma -->
+<button (click)="toggleLoginFirma()" id="bt" class="btn btn-primary">Login firma</button>
 
+<br>
+<br>
+
+<!-- ng-container indeholder login bruger -->
 <ng-container *ngIf="showLogin">
-    <h1>Log ind</h1>
-    <br>
-    
-    <!-- <h3>Har du allerede en bruger så tryk på log ind</h3>
-    <p class="btn btn-primary" (click)="toggleForm()">Log ind</p>
-     -->
     
     <form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="login()">
     
-    <!-- <h3>Tryk på knappen for at komme tilbage.</h3>
-    <p class="btn btn-primary" (click)="toggleForm()">Tilbage</p>
-    <hr> -->
-
-    
-    <h3>Log ind for at forsætte til din profil</h3>
+    <h3>Log ind for at forsætte til din bruger profil</h3>
     <label for="email">Email</label>
     <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password">
     
@@ -26,7 +22,7 @@
     </div>
     
     <label for="password">Password</label>
-    <input type="password" id="password" name="password2" class="input" formControlName="password" required autocomplete="new-password">
+    <input type="password" id="password2" name="password2" class="input" formControlName="password" required autocomplete="new-password">
     
     <div *ngIf="formErrors.password" class="help is-danger">
         {{ formErrors.password }}
@@ -40,7 +36,37 @@
     <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
     
     </form>
+</ng-container>
 
+
+
+<!-- ng-container indeholder login firma -->
+<ng-container *ngIf="!showLogin">
+    <form [formGroup]="userCompanyForm" *ngIf="newUserCompany" (ngSubmit)="loginCompany()">
+
+        <h3>Log ind for at forsætte til din firma profil</h3>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="input" formControlName="email" required autocomplete="new-password">
+        
+        <div *ngIf="formErrors.email" class="help is-danger">
+            {{ formErrors.email }}
+        </div>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="input" formControlName="password" required autocomplete="new-password">
+        
+        <!-- <div *ngIf="formErrors.password" class="help is-danger">
+            {{ formErrors.password }}
+        </div> -->
+        
+        <button type="submit" class="btn btn-primary" [disabled]="!userformCompany.valid">Log ind</button>
+        
+        <span *ngIf="userformCompany.valid" class="help is-success">Form Looks Valid</span>
+        
+        <a *ngIf="!passReset && userformCompany.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userformCompany.value.email}}?</a>
+        <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
+    
+    </form>
 </ng-container>
 
 
@@ -48,9 +74,20 @@
 <br>
 <br>
 
-<button (click)="toggle()" id="bt" class="btn btn-primary">{{createUser}}</button>
 
-<ng-container *ngIf="!show"> <!-- !show = userCompany  -->
+
+<!-- toggle bruger form -->
+<button (click)="toggle()" id="bt" class="btn btn-primary">Opret bruger</button> 
+
+<!-- toggle firma form -->
+<button (click)="toggleFirma()" id="bt" class="btn btn-primary">Opret firma</button> 
+
+<br>
+<br>
+
+
+<!-- ng-container indeholder opret bruger -->
+<ng-container *ngIf="show"> <!-- !show = userCompany  -->
     <form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signup()">
     
     
@@ -82,10 +119,11 @@
 
 
 
-<ng-container *ngIf="show"> <!-- show = userCompany  -->
+<!-- ng-container indeholder opret firma -->
+<ng-container *ngIf="!show"> <!-- show = userCompany  -->
     <form [formGroup]="userCompanyForm" *ngIf="newUserCompany" (ngSubmit)="signupCompany()">
 
-        <h3>Opret ny Firma profil</h3>
+        <h3>Opret ny firma profil</h3>
         <!--<p class="button is-small" (click)="toggleForm()">Already Registered?</p>-->
         <hr>
         <label for="email">Email</label>
@@ -101,33 +139,3 @@
         
         </form>
 </ng-container>
-
-
-
-
-
-<form [formGroup]="userCompanyForm" *ngIf="!newUserCompany" (ngSubmit)="loginCompany()">
-
-    <h3>Log ind for at forsætte til din firma profil</h3>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" class="input" formControlName="email" required autocomplete="new-password">
-    
-    <div *ngIf="formErrors.email" class="help is-danger">
-        {{ formErrors.email }}
-    </div>
-    
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" class="input" formControlName="password" required autocomplete="new-password">
-    
-    <div *ngIf="formErrors.password" class="help is-danger">
-        {{ formErrors.password }}
-    </div>
-    
-    <button type="submit" class="btn btn-primary" [disabled]="!userformCompany.valid">Log ind</button>
-    
-    <span *ngIf="userformCompany.valid" class="help is-success">Form Looks Valid</span>
-    
-    <a *ngIf="!passReset && userformCompany.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userformCompany.value.email}}?</a>
-    <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
-
-</form>
