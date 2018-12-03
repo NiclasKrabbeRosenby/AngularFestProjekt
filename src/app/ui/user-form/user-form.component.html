@@ -43,30 +43,30 @@
 <!-- ng-container indeholder login firma -->
 <ng-container *ngIf="!showLogin">
     <form [formGroup]="userCompanyForm" *ngIf="newUserCompany" (ngSubmit)="loginCompany()">
-
+    
         <h3>Log ind for at forsætte til din firma profil</h3>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" class="input" formControlName="email" required autocomplete="new-password">
+        <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password">
         
         <div *ngIf="formErrors.email" class="help is-danger">
             {{ formErrors.email }}
         </div>
         
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" class="input" formControlName="password" required autocomplete="new-password">
+        <input type="password" id="password2" name="password2" class="input" formControlName="password" required autocomplete="new-password">
         
         <div *ngIf="formErrors.password" class="help is-danger">
             {{ formErrors.password }}
         </div>
         
-        <button type="submit" class="btn btn-primary" [disabled]="!userformCompany.valid">Log ind</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!userCompanyForm.valid">Log ind</button>
         
-        <span *ngIf="userformCompany.valid" class="help is-success">Form Looks Valid</span>
+        <span *ngIf="userCompanyForm.valid" class="help is-success">Form Looks Valid</span>
         
-        <a *ngIf="!passReset && userformCompany.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userformCompany.value.email}}?</a>
+        <a *ngIf="!passReset && userCompanyForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userCompanyForm.value.email}}?</a>
         <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
-    
-    </form>
+        
+        </form>
 </ng-container>
 
 
@@ -128,14 +128,21 @@
         <hr>
         <label for="email">Email</label>
         <input type="email" class="input" formControlName="email" name="email">
-        
+
+        <div *ngIf="formErrors.email" class="notification is-danger">
+            {{ formErrors.email }}
+        </div>
         
         <label for="password">Password</label>
         <input type="password" class="input" formControlName="password" name="password" required>
         
+        <div *ngIf="formErrors.password" class="notification is-danger">
+            {{ formErrors.password }}
+        </div>
         
         <br>
-        <button type="submit" class="btn btn-primary">Opret Profil</button>
+        <div *ngIf="userCompanyForm.valid" class="notification is-success">Form is valid</div>
+        <button type="submit" class="btn btn-primary" [disabled]="!userCompanyForm.valid">Opret Profil</button>
         
         </form>
 </ng-container>

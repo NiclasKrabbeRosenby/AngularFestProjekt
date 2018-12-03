@@ -3,7 +3,7 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } 
 import { AuthService } from "../../core/auth.service";
 import { AuthCompanyService } from '../../core/auth-company.service';
 
-type UserFields = 'email' | 'password';
+type UserFields = 'email' | 'password' | 'email2' | 'password2';
 type FormErrors = { [u in UserFields]: string };
 
 @Component({
@@ -24,6 +24,8 @@ export class UserFormComponent implements OnInit {
   formErrors: FormErrors = {
     'email': '',
     'password': '',
+    'email2': '',
+    'password2': '',
     
   };
 
@@ -58,18 +60,22 @@ export class UserFormComponent implements OnInit {
     this.buildCompanyForm();  
   }
 
+  //toggle method for opret bruger
   toggle(){
     this.show = true;
   }
 
+  //toggle method for opret firma
   toggleFirma(){
     this.show = false;
   }
 
+  //toggle method for login bruger
   toggleLogin(){
     this.showLogin = true;
   }
-
+  
+ //toggle method for login firma
   toggleLoginFirma(){
     this.showLogin = false;
   }
@@ -96,6 +102,7 @@ export class UserFormComponent implements OnInit {
 
   loginCompany() {
     this.authCompany.emailLoginCompany(this.userCompanyForm.value['email'], this.userCompanyForm.value['password']);
+    console.log('logged in');
   }
 
   resetPassword() {
