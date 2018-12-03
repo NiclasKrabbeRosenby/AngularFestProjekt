@@ -1,9 +1,9 @@
 
 <!-- toggle login bruger -->
-<button (click)="toggleLogin()" id="bt" class="btn btn-primary">Login bruger</button>
+<button (click)="toggleLogin()" id="bt" class="btn btn-primary" [disabled]="showLogin">Login bruger</button>
 
 <!-- toggle login firma -->
-<button (click)="toggleLoginFirma()" id="bt" class="btn btn-primary">Login firma</button>
+<button (click)="toggleLoginFirma()" id="bt" class="btn btn-primary" [disabled]="!showLogin">Login firma</button>
 
 <br>
 <br>
@@ -77,10 +77,10 @@
 
 
 <!-- toggle bruger form -->
-<button (click)="toggle()" id="bt" class="btn btn-primary">Opret bruger</button> 
+<button (click)="toggle()" id="bt" class="btn btn-primary" [disabled]="show">Opret bruger</button> 
 
 <!-- toggle firma form -->
-<button (click)="toggleFirma()" id="bt" class="btn btn-primary">Opret firma</button> 
+<button (click)="toggleFirma()" id="bt" class="btn btn-primary" [disabled]="!show">Opret firma</button> 
 
 <br>
 <br>
