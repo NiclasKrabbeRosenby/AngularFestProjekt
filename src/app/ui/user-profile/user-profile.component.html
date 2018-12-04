@@ -1,4 +1,4 @@
-<div class="box" >
+<div class="box" *ngIf="!newUser">
   <div *ngIf="auth.user | async; then authenticated else guest">
           <!-- template will replace this div -->
   </div>
@@ -14,6 +14,7 @@
 <!-- User logged in -->
 <ng-template #authenticated>
   <div *ngIf="auth.user | async as user">
+    Bruger
     <h3>Hej, {{ user.displayName }}</h3>
     <h4>Fornavn : {{ user.firstName }}</h4>
     <h4>Efternavn : {{ user.lastName }}</h4>
@@ -32,4 +33,29 @@
 </ng-template>
 
 
-
+<div class="box" *ngIf="!newUserCompany">
+    <div *ngIf="authCompany.company | async; then authenticatedCompany">
+            <!-- template will replace this div -->
+    </div>
+  </div>
+  
+  <!-- User logged in -->
+  <ng-template #authenticatedCompany>
+    <div *ngIf="authCompany.company | async as company">
+      Firma
+      <h3>Hej, {{ company.displayName }}</h3>
+      <h4>Firma : {{ company.firstName }}</h4>
+      <h4>Efternavn : {{ company.lastName }}</h4>
+      <h4>Telefon : {{ company.phoneNumber }}</h4>
+      <h4>Adresse : {{ company.address }}</h4>
+      <h4>Postnr : {{ company.zipCode }}</h4>
+      <h4>By : {{ company.city }}</h4>
+      <h4>Email : {{ company.email }}</h4>
+      <!--<img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>-->
+      <p class="text-truncate">UID : {{ company.uid }}</p>
+  
+      <button class="button" [routerLink]="['/boards-details/', company.uid]">Opdater profil</button>
+       <br>
+      <button class="button" (click)="logout()">Log ud</button>
+    </div>
+  </ng-template>

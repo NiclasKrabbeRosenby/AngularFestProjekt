@@ -102,7 +102,6 @@ export class UserFormComponent implements OnInit {
 
   loginCompany() {
     this.authCompany.emailLoginCompany(this.userCompanyForm.value['email'], this.userCompanyForm.value['password']);
-    console.log('logged in');
   }
 
   resetPassword() {
