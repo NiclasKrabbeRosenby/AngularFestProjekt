@@ -1,11 +1,11 @@
-<div *ngIf="!(auth.user | async); else alreadyLoggedIn">
+<div *ngIf="!(authCompany.company | async); else alreadyLoggedInCompany">
 
-    <user-form></user-form>
+    <companyform></companyform>
 
 </div>
 
-<ng-template #alreadyLoggedIn>
-  <h3>Din profil</h3>
+<ng-template #alreadyLoggedInCompany>
+  <h3>Din Firma profil</h3>
   <p>Under din profil kan du ændre dine oplysninger samt se og acceptere dine indhentede tilbud</p>
   <p class="text-success">
     Du er nu logget ind <i class="fa fa-thumbs-up"></i>

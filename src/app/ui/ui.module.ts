@@ -11,6 +11,9 @@ import { NotificationMessageComponent } from './notification-message/notificatio
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { SsrPageComponent } from './ssr-page/ssr-page.component';
+import { CompanyformComponent } from '../ui/companyform/companyform.component';
+import { CompanyProfileComponent } from '../ui/company-profile/company-profile.component';
+import { CompanyloginComponent } from "../ui/companylogin/companylogin.component";
 
 @NgModule({
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
@@ -22,14 +25,21 @@ import { SsrPageComponent } from './ssr-page/ssr-page.component';
     NotificationMessageComponent,
     UserProfileComponent,
     UserFormComponent,
-    SsrPageComponent
+    SsrPageComponent,
+    CompanyloginComponent,
+    CompanyProfileComponent,
+    CompanyformComponent
+
   ],
   exports: [
     MainNavComponent,
     LoadingSpinnerComponent,
     NotificationMessageComponent,
     UserProfileComponent,
-    UserFormComponent
+    UserFormComponent,
+    CompanyProfileComponent,
+    CompanyformComponent
+    
   ]
 })
 export class UiModule {}

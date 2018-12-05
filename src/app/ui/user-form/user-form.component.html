@@ -3,7 +3,7 @@
 <button (click)="toggleLogin()" id="bt" class="btn btn-primary" [disabled]="showLogin">Login bruger</button>
 
 <!-- toggle login firma -->
-<button (click)="toggleLoginFirma()" id="bt" class="btn btn-primary" [disabled]="!showLogin">Login firma</button>
+<button [routerLink]="['/login-company']" id="bt" class="btn btn-primary" [disabled]="!showLogin">Login firma</button>
 
 <br>
 <br>
@@ -41,7 +41,7 @@
 
 
 <!-- ng-container indeholder login firma -->
-<ng-container *ngIf="!showLogin">
+<!-- <ng-container *ngIf="!showLogin">
     <form [formGroup]="userCompanyForm" *ngIf="newUserCompany" (ngSubmit)="loginCompany()">
     
         <h3>Log ind for at forsætte til din firma profil</h3>
@@ -67,7 +67,7 @@
         <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
         
         </form>
-</ng-container>
+</ng-container> -->
 
 
 
@@ -80,7 +80,7 @@
 <button (click)="toggle()" id="bt" class="btn btn-primary" [disabled]="show">Opret bruger</button> 
 
 <!-- toggle firma form -->
-<button (click)="toggleFirma()" id="bt" class="btn btn-primary" [disabled]="!show">Opret firma</button> 
+<button [routerLink]="['/login-company']" id="bt" class="btn btn-primary" [disabled]="!show">Opret firma</button> 
 
 <br>
 <br>
@@ -120,12 +120,12 @@
 
 
 <!-- ng-container indeholder opret firma -->
-<ng-container *ngIf="!show"> <!-- show = userCompany  -->
-    <form [formGroup]="userCompanyForm" *ngIf="newUserCompany" (ngSubmit)="signupCompany()">
+<!-- <ng-container *ngIf="!show"> show = userCompany  -->
+    <!-- <form [formGroup]="userCompanyForm" *ngIf="newUserCompany" (ngSubmit)="signupCompany()">
 
-        <h3>Opret ny firma profil</h3>
+        <h3>Opret ny firma profil</h3> -->
         <!--<p class="button is-small" (click)="toggleForm()">Already Registered?</p>-->
-        <hr>
+        <!-- <hr>
         <label for="email">Email</label>
         <input type="email" class="input" formControlName="email" name="email">
 
@@ -145,4 +145,4 @@
         <button type="submit" class="btn btn-primary" [disabled]="!userCompanyForm.valid">Opret Profil</button>
         
         </form>
-</ng-container>
+</ng-container> -->

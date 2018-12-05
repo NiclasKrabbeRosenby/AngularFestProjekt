@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
+import { AuthCompanyService } from "../../core/auth-company.service";
 
 @Component({
   selector: 'user-login',
@@ -10,8 +11,7 @@ import { AuthService } from '../../core/auth.service';
 })
 export class UserLoginComponent {
 
-  constructor(public auth: AuthService,
-              private router: Router) { }
+  constructor(public auth: AuthService,private router: Router,public authCompany: AuthCompanyService) { }
 
   /// Social Login
 

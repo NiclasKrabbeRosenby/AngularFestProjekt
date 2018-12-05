@@ -12,6 +12,8 @@ import { BoardsComponent } from './crud/boards/boards.component';
 import { BoardsDetailComponent } from './crud/boards-detail/boards-detail.component';
 import { BoardsCreateComponent } from './crud/boards-create/boards-create.component';
 import { BoardsEditComponent } from "./crud/boards-edit/boards-edit.component";
+import { CompanyloginComponent } from './ui/companylogin/companylogin.component';
+import { CompanyformComponent } from './ui/companyform/companyform.component';
 
 
 const routes: Routes = [
@@ -24,7 +26,10 @@ const routes: Routes = [
   { path: 'boards-create', component: BoardsCreateComponent,canActivate: [AuthGuard], data: { title: 'Create Boards' } },
   { path: 'boards-edit/:id', component: BoardsEditComponent,canActivate: [AuthGuard], data: { title: 'Edit Boards' } },
   // { path: '', redirectTo: '/boards', pathMatch: 'full' },
-  { path: 'ssr', component: SsrPageComponent }
+  { path: 'ssr', component: SsrPageComponent },
+  { path: 'login-company', component: CompanyloginComponent}
+
+  
 ];
 
 

@@ -73,6 +73,7 @@ export class AuthCompanyService {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
+        
         //this.notify.update('Welcome back TEST!', 'success');
         return this.updateUserCompanyData(credential.user);
       })
@@ -82,20 +83,22 @@ export class AuthCompanyService {
 
   private updateUserCompanyData(company) {
     // Sets user data to firestore on login
-
+    
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`usersCompany/${company.uid}`);
 
     const data: UserCompany = {
       uid: company.uid,
       email: company.email,
+      
     }
+    console.log(company.uid)
     return userRef.set(data, { merge: true })
 
   }
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login-company']);
     });
   }
 

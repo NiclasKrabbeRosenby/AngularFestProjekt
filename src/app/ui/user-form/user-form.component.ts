@@ -17,8 +17,8 @@ export class UserFormComponent implements OnInit {
   public showLogin: boolean = true;
 
   userForm: FormGroup;
-  userCompanyForm: FormGroup;
-  newUserCompany = true;
+  // userCompanyForm: FormGroup;
+  // newUserCompany = true;
   newUser = true; // to toggle login or signup form
   passReset = false; // set to true when password reset is triggered
   formErrors: FormErrors = {
@@ -57,7 +57,7 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
-    this.buildCompanyForm();  
+    // this.buildCompanyForm();  
   }
 
   //toggle method for opret bruger
@@ -66,9 +66,9 @@ export class UserFormComponent implements OnInit {
   }
 
   //toggle method for opret firma
-  toggleFirma(){
-    this.show = false;
-  }
+  // toggleFirma(){
+  //   this.show = false;
+  // }
 
   //toggle method for login bruger
   toggleLogin(){
@@ -76,33 +76,33 @@ export class UserFormComponent implements OnInit {
   }
   
  //toggle method for login firma
-  toggleLoginFirma(){
-    this.showLogin = false;
-  }
+  // toggleLoginFirma(){
+  //   this.showLogin = false;
+  // }
 
   toggleForm() {
     this.newUser = !this.newUser;
   }
 
-  toggleFormCompany(){ 
-    this.newUserCompany = !this.newUserCompany;
-  }
+  // toggleFormCompany(){ 
+  //   this.newUserCompany = !this.newUserCompany;
+  // }
 
   signup() {
     this.auth.emailSignUp(this.userForm.value['email'], this.userForm.value['password']);
   }
 
-  signupCompany() {
-    this.authCompany.emailCompanySignUp(this.userCompanyForm.value['email'], this.userCompanyForm.value['password']);
-  }
+  // signupCompany() {
+  //   this.authCompany.emailCompanySignUp(this.userCompanyForm.value['email'], this.userCompanyForm.value['password']);
+  // }
 
   login() {
     this.auth.emailLogin(this.userForm.value['email'], this.userForm.value['password']);
   }
 
-  loginCompany() {
-    this.authCompany.emailLoginCompany(this.userCompanyForm.value['email'], this.userCompanyForm.value['password']);
-  }
+  // loginCompany() {
+  //   this.authCompany.emailLoginCompany(this.userCompanyForm.value['email'], this.userCompanyForm.value['password']);
+  // }
 
   resetPassword() {
     this.auth.resetPassword(this.userForm.value['email'])
@@ -127,22 +127,22 @@ export class UserFormComponent implements OnInit {
   }
 
 
-  buildCompanyForm() {
-    this.userCompanyForm = this.fb.group({
-      'email': ['', [
-        Validators.required,
-        Validators.email,
-      ]],
-      'password': ['', [
-        Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-        Validators.minLength(6),
-        Validators.maxLength(25),
-      ]],
-    });
+  // buildCompanyForm() {
+  //   this.userCompanyForm = this.fb.group({
+  //     'email': ['', [
+  //       Validators.required,
+  //       Validators.email,
+  //     ]],
+  //     'password': ['', [
+  //       Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
+  //       Validators.minLength(6),
+  //       Validators.maxLength(25),
+  //     ]],
+  //   });
 
-    this.userCompanyForm.valueChanges.subscribe((data) => this.onValueChangedCompany(data));
-    this.onValueChangedCompany(); // reset validation messages
-  }
+  //   this.userCompanyForm.valueChanges.subscribe((data) => this.onValueChangedCompany(data));
+  //   this.onValueChangedCompany(); // reset validation messages
+  // }
 
   // Updates validation state on form changes.
   onValueChanged(data?: any) {
@@ -168,25 +168,25 @@ export class UserFormComponent implements OnInit {
   }
 
 
-  onValueChangedCompany(data?: any) {
-    if (!this.userCompanyForm) { return; }
-    const form = this.userCompanyForm;
-    for (const field in this.formErrors) {
-      if (Object.prototype.hasOwnProperty.call(this.formErrors, field) && (field === 'email' || field === 'password')) {
-        // clear previous error message (if any)
-        this.formErrors[field] = '';
-        const control = form.get(field);
-        if (control && control.dirty && !control.valid) {
-          const messages = this.validationMessages[field];
-          if (control.errors) {
-            for (const key in control.errors) {
-              if (Object.prototype.hasOwnProperty.call(control.errors, key) ) {
-                this.formErrors[field] += `${(messages as {[key: string]: string})[key]} `;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  // onValueChangedCompany(data?: any) {
+  //   if (!this.userCompanyForm) { return; }
+  //   const form = this.userCompanyForm;
+  //   for (const field in this.formErrors) {
+  //     if (Object.prototype.hasOwnProperty.call(this.formErrors, field) && (field === 'email' || field === 'password')) {
+  //       // clear previous error message (if any)
+  //       this.formErrors[field] = '';
+  //       const control = form.get(field);
+  //       if (control && control.dirty && !control.valid) {
+  //         const messages = this.validationMessages[field];
+  //         if (control.errors) {
+  //           for (const key in control.errors) {
+  //             if (Object.prototype.hasOwnProperty.call(control.errors, key) ) {
+  //               this.formErrors[field] += `${(messages as {[key: string]: string})[key]} `;
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }

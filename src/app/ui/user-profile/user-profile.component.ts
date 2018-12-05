@@ -15,8 +15,6 @@ export class UserProfileComponent {
 
   constructor(public auth: AuthService, private router: Router, public authCompany: AuthCompanyService ) { }
 
-  
-
 
   logout() {
     this.auth.signOut();
@@ -24,5 +22,6 @@ export class UserProfileComponent {
   
  logoutCompany(){
    this.authCompany.signOut();
+
  }
 }
