@@ -41,7 +41,7 @@ export class CompanyformComponent implements OnInit {
     },
 };
 
-  constructor(private fb: FormBuilder, private authCompany: AuthCompanyService, private auth: AuthService) { }
+  constructor(private fb: FormBuilder, private authCompany: AuthCompanyService) { }
 
   ngOnInit() {
     this.buildCompanyForm();  
@@ -70,7 +70,7 @@ export class CompanyformComponent implements OnInit {
 
 
   resetPassword() {
-    this.auth.resetPassword(this.userCompanyForm.value['email'])
+    this.authCompany.resetPassword(this.userCompanyForm.value['email'])
       .then(() => this.passReset = true);
   }
 

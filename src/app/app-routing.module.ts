@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './core/auth.guard';
+import { AuthCompanyGuardService } from "./core/auth-company-guard.service";
 import { UserLoginComponent } from './ui/user-login/user-login.component';
 import { HomePageComponent } from './ui/home-page/home-page.component';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
   { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
   { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
   // { path: 'boards', component: BoardsComponent, canActivate: [AuthGuard], data: { title: 'Boards List' } },
-  { path: 'boards-details/:id', component: BoardsDetailComponent,canActivate: [AuthGuard], data: { title: 'Boards Details' } },
+  { path: 'boards-details/:id', component: BoardsDetailComponent,canActivate: [AuthCompanyGuardService],  data: { title: 'Boards Details' } },
   { path: 'boards-create', component: BoardsCreateComponent,canActivate: [AuthGuard], data: { title: 'Create Boards' } },
   { path: 'boards-edit/:id', component: BoardsEditComponent,canActivate: [AuthGuard], data: { title: 'Edit Boards' } },
   // { path: '', redirectTo: '/boards', pathMatch: 'full' },

@@ -12,7 +12,7 @@ import { AuthCompanyService } from "../../core/auth-company.service";
 })
 export class CompanyProfileComponent implements OnInit {
 
-  constructor(public auth: AuthService, private router: Router, public authCompany: AuthCompanyService) { }
+  constructor(private router: Router, public authCompany: AuthCompanyService, public auth: AuthService) { }
 
   ngOnInit() {
   }

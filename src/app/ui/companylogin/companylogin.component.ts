@@ -1,4 +1,4 @@
-import {  OnInit } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { AuthCompanyService } from "../../core/auth-company.service";
 })
 export class CompanyloginComponent implements OnInit {
 
-  constructor(public auth: AuthService,private router: Router,public authCompany: AuthCompanyService) { }
+  constructor(private router: Router,public authCompany: AuthCompanyService) { }
 
   ngOnInit() {
   }
