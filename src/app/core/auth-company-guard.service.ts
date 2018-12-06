@@ -32,7 +32,7 @@ export class AuthCompanyGuardService implements CanActivate {
         if (!loggedIn) {
           console.log('adgang nægtet');
           this.notify.update('Du skal være logget ind!', 'error');
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login-company']);
         }
       })
     );

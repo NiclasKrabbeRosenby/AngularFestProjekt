@@ -15,6 +15,8 @@ import { BoardsCreateComponent } from './crud/boards-create/boards-create.compon
 import { BoardsEditComponent } from "./crud/boards-edit/boards-edit.component";
 import { CompanyloginComponent } from './ui/companylogin/companylogin.component';
 import { CompanyformComponent } from './ui/companyform/companyform.component';
+import { BoardsDetailCompanyComponent } from './crud-company/boards-detail-company/boards-detail-company.component';
+import { BoardsEditCompanyComponent } from './crud-company/boards-edit-company/boards-edit-company.component';
 
 
 const routes: Routes = [
@@ -23,12 +25,16 @@ const routes: Routes = [
   { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
   { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
   // { path: 'boards', component: BoardsComponent, canActivate: [AuthGuard], data: { title: 'Boards List' } },
-  { path: 'boards-details/:id', component: BoardsDetailComponent,canActivate: [AuthCompanyGuardService],  data: { title: 'Boards Details' } },
+  { path: 'boards-details/:id', component: BoardsDetailComponent,canActivate: [AuthGuard],  data: { title: 'Boards Details' } },
   { path: 'boards-create', component: BoardsCreateComponent,canActivate: [AuthGuard], data: { title: 'Create Boards' } },
   { path: 'boards-edit/:id', component: BoardsEditComponent,canActivate: [AuthGuard], data: { title: 'Edit Boards' } },
   // { path: '', redirectTo: '/boards', pathMatch: 'full' },
   { path: 'ssr', component: SsrPageComponent },
-  { path: 'login-company', component: CompanyloginComponent}
+
+  //Company routes
+  { path: 'login-company', component: CompanyloginComponent},
+  { path: 'boards-details-company/:id', component: BoardsDetailCompanyComponent, canActivate: [AuthCompanyGuardService], data: { title: 'Boards Details' }},
+  { path: 'boards-edit-company/:id', component: BoardsEditCompanyComponent,canActivate: [AuthCompanyGuardService], data: { title: 'Edit Boards' } },
 
   
 ];

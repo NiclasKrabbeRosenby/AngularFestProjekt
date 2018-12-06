@@ -39,6 +39,10 @@ import { BoardsDetailComponent } from '../app/crud/boards-detail/boards-detail.c
 import { BoardsCreateComponent } from '../app/crud/boards-create/boards-create.component';
 import { BoardsEditComponent } from '../app/crud/boards-edit/boards-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BoardsCompanyComponent } from './crud-company/boards-company/boards-company.component';
+import { BoardsCreateCompanyComponent } from './crud-company/boards-create-company/boards-create-company.component';
+import { BoardsDetailCompanyComponent } from './crud-company/boards-detail-company/boards-detail-company.component';
+import { BoardsEditCompanyComponent } from './crud-company/boards-edit-company/boards-edit-company.component';
 
 // IMPORTANT
 // Add your own project credentials to environments/*.ts
@@ -50,7 +54,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [AppComponent, BoardsComponent,
     BoardsDetailComponent,
     BoardsCreateComponent,
-    BoardsEditComponent,],
+    BoardsEditComponent,
+    BoardsCompanyComponent,
+    BoardsCreateCompanyComponent,
+    BoardsDetailCompanyComponent,
+    BoardsEditCompanyComponent,],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserTransferStateModule,

@@ -16,6 +16,10 @@ export class CompanyloginComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+  logoutCompany(){
+    this.authCompany.signOut();
+ 
+  }
 
 }
