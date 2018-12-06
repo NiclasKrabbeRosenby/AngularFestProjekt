@@ -1,68 +1,59 @@
-<h1>Velkommen til Festrobotten</h1>
+<button class="button" [routerLink]="['/login']">Tilbage</button>
+<br>
+<div class="button-row">
+</div>
+
 <br>
 
+<form [formGroup]="partyForm" (ngSubmit)="onFormSubmit(partyForm.value)">
 
-<form [formGroup]="userForm">
+  <div class="example-full-width">
+    <input matInput placeholder="Nr of persons" formControlName="nrOfPersons"  type="number">
+    <!-- <mat-error>
+      <span *ngIf="!partyForm.get('nrOfPersons').valid && partyForm.get('nrOfPersons').touched">Please enter Board Title</span>
+    </mat-error> -->
+  </div>
 
-    <h3>Udfyld felterne så præcist som muligt for at indhente tilbud til din/jeres fest</h3>
-    <hr>
+  <br>
 
-    <label for="email">Antal Personer</label>
-    <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password" placeholder="Antal Personer">
+  <div class="example-full-width">
+    <input matInput placeholder="Max price" formControlName="maxPrice" type="number">
+    <!-- <mat-error>
+      <span *ngIf="!partyForm.get('maxPrice').valid && partyForm.get('maxPrice').touched">Please enter Board Description</span>
+    </mat-error> -->
+  </div>
 
-    <label for="email">Max Pris per person</label>
-    <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password" placeholder="Max Pris">
+  <br>
 
+  <div class="example-full-width">
+    <input matInput placeholder="Date" formControlName="date">
+    <!-- <mat-error>
+      <span *ngIf="!partyForm.get('date').valid && partyForm.get('date').touched">Please enter Board Author</span>
+    </mat-error> -->
+  </div>
 
-    <label for="password">Dato</label>
-    <input type="date" id="password" name="password2" class="input" formControlName="password" required autocomplete="new-password">
+  <br>
 
-    <label for="password">Tidspunkt</label>
-    <input type="time" id="password" name="password2" class="input" formControlName="password" required autocomplete="new-password">
+  <div class="example-full-width">
+    <input matInput placeholder="Time" formControlName="time" type="time">
+  </div>
+  
+  <br>
 
-    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Lokation</label>
-    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-      <option selected>Vælg Lokation</option>
-      <option value="1">Eget Lokale</option>
-      <option value="2">Ud af huset</option>
-    </select>
+  <div class="example-full-width">
+    <input matInput placeholder="Location" formControlName="location" type="text">
+  </div>
+    
+  <br>
 
-      <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Type Fest</label>
-      <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-        <option selected>Vælg Type Fest</option>
-        <option value="1">Bryllup</option>
-        <option value="2">Fødselsdag</option>
-        <option value="3">Polterabend</option>
-      </select>
-
-    <span *ngIf="userForm.valid" class="help is-success">Form Looks Valid</span>
-
-    <a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a>
-    <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
-
-    <h1>Ekstra Tilvalg</h1>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        <label class="form-check-label" for="defaultCheck1">
-          Transport til lokation
-        </label>
-      </div>
+  <div class="example-full-width">
+    <input matInput placeholder="type" formControlName="type" type="text">
+  </div>
       
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        <label class="form-check-label" for="defaultCheck1">
-          Transport fra lokation
-        </label>
-      </div>
+  <br>
 
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        <label class="form-check-label" for="defaultCheck1">
-          Overnatning
-        </label>
-      </div>
+  <div class="button-row">
+    <button class="button" type="submit" [disabled]="!partyForm.valid" mat-fab color="primary">send oplysninger</button>
+  </div>
 
-
-
-    <button type="button" class="btn btn-primary">Indhent Tilbud</button>
 </form>

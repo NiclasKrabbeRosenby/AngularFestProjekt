@@ -20,7 +20,7 @@ import { BoardsEditCompanyComponent } from './crud-company/boards-edit-company/b
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
+  { path: 'create-offer', component: HomePageComponent, canActivate: [AuthGuard] },
   { path: 'login', component: UserLoginComponent },
   { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
   { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },

@@ -44,6 +44,7 @@ import { BoardsCreateCompanyComponent } from './crud-company/boards-create-compa
 import { BoardsDetailCompanyComponent } from './crud-company/boards-detail-company/boards-detail-company.component';
 import { BoardsEditCompanyComponent } from './crud-company/boards-edit-company/boards-edit-company.component';
 
+
 // IMPORTANT
 // Add your own project credentials to environments/*.ts
 
@@ -58,7 +59,7 @@ import { BoardsEditCompanyComponent } from './crud-company/boards-edit-company/b
     BoardsCompanyComponent,
     BoardsCreateCompanyComponent,
     BoardsDetailCompanyComponent,
-    BoardsEditCompanyComponent,],
+    BoardsEditCompanyComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserTransferStateModule,
